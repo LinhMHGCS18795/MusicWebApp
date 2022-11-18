@@ -1,0 +1,29 @@
+namespace Soundwave_Music.Models
+{
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
+    public partial class Song_Love_React
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Song_love_react_id { get; set; }
+
+        [StringLength(1)]
+        public string React_love { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy HH:mm}", ApplyFormatInEditMode = true)]
+        public DateTime Create_date { get; set; }
+
+        public int Song_id { get; set; }
+
+        public int User_id { get; set; }
+
+        public virtual Song Song { get; set; }
+
+        public virtual User User { get; set; }
+    }
+}
